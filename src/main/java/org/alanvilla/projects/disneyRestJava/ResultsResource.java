@@ -1,12 +1,11 @@
 package org.alanvilla.projects.disneyRestJava;
 
-import java.util.UUID;
 import java.time.Instant;
+import java.util.UUID;
 
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -32,7 +31,12 @@ public class ResultsResource {
     
     JsonObjectBuilder buildAlexaObject (JsonObjectBuilder builder) { 	
     	addUTCData(builder);
-    	builder.add("titleText", DISNEY_RESULT_JSON);  	
+    	builder.add("titleText", DISNEY_RESULT_JSON);  
+    	if (BlackoutDates.isDisneyBlackoutDate()) {
+    		
+    	} else {
+    		
+    	}
 		return builder;   	
     }
     
