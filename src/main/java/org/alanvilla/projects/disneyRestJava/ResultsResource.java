@@ -46,7 +46,7 @@ public class ResultsResource {
         return arrayBuilder.build();
     }
     
-    JsonObjectBuilder buildAlexaObject (JsonObjectBuilder builder, ThemePark park) { 	
+    private JsonObjectBuilder buildAlexaObject (JsonObjectBuilder builder, ThemePark park) { 	
     	addUTCData(builder);
     	if (park == ThemePark.DISNEYLAND) {
         	builder.add(TITLE_TEXT, DISNEY_RESULT_JSON);
@@ -57,7 +57,12 @@ public class ResultsResource {
         	}
         	
     	} else if (park == ThemePark.CALIFORNIA_ADVENTURE){
-        	builder.add(TITLE_TEXT, CALIFORNIA_ADVENTURE_RESULT_JSON);  
+        	builder.add(TITLE_TEXT, CALIFORNIA_ADVENTURE_RESULT_JSON);
+        	if (BlackoutDates.isCaliforniaAdventureBlackoutDate()) {
+        		builder.add(MAIN_TEXT, "California adventure is not available today.");
+        	} else {
+        		builder.add(MAIN_TEXT, "California adventure is available today.");
+        	}
     	}	
     	builder.add(RIDERECT_URL, URL);
 		return builder;   	
