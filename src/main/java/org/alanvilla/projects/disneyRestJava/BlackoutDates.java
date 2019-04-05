@@ -50,7 +50,7 @@ public class BlackoutDates {
 			put(5, new ArrayList<Integer>(Arrays.asList(4, 11, 18, 25, 26)));		//May
 			
 			ArrayList<Integer> blackoutDaysInJune = new ArrayList<Integer>(Arrays.asList(1, 7, 8, 9, 14, 15, 16));
-			blackoutDaysInJune.addAll(secondHalfJuneDays);
+			blackoutDaysInJune.addAll(secondHalfJuneDays); //21-30
 			put(6, blackoutDaysInJune); 	//June
 		
 			put(7, numDays31);				//July
@@ -64,7 +64,7 @@ public class BlackoutDates {
 			
 			ArrayList<Integer> blackoutDaysInDecember = new ArrayList<Integer>(Arrays.asList(7, 14, 15));
 			blackoutDaysInDecember.add(20);
-			blackoutDaysInDecember.addAll(secondHalfJuneDays);
+			blackoutDaysInDecember.addAll(secondHalfJuneDays); //21-30
 			blackoutDaysInDecember.add(31);
 			
 			put(12, blackoutDaysInDecember);	//December

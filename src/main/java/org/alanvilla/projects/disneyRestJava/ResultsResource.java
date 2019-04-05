@@ -1,5 +1,16 @@
 package org.alanvilla.projects.disneyRestJava;
 
+import static org.alanvilla.projects.disneyRestJava.Constants.CALIFORNIA_ADVENTURE_RESULT_JSON;
+import static org.alanvilla.projects.disneyRestJava.Constants.CALIFORNIA_ADVENTURE_AVAILABLE;
+import static org.alanvilla.projects.disneyRestJava.Constants.CALIFORNIA_ADVENTURE_NOT_AVAILABLE;
+import static org.alanvilla.projects.disneyRestJava.Constants.DISNEYLAND_AVAILABLE;
+import static org.alanvilla.projects.disneyRestJava.Constants.DISNEYLAND_NOT_AVAILABLE;
+import static org.alanvilla.projects.disneyRestJava.Constants.DISNEY_RESULT_JSON;
+import static org.alanvilla.projects.disneyRestJava.Constants.MAIN_TEXT;
+import static org.alanvilla.projects.disneyRestJava.Constants.REDIRECT_URL;
+import static org.alanvilla.projects.disneyRestJava.Constants.TITLE_TEXT;
+import static org.alanvilla.projects.disneyRestJava.Constants.URL;
+
 import java.time.Instant;
 import java.util.UUID;
 
@@ -18,16 +29,6 @@ public class ResultsResource {
 	enum ThemePark{
 		DISNEYLAND, CALIFORNIA_ADVENTURE;
 	}
-	
-	public static final String DISNEY_RESULT_JSON = "Disney result JSON";
-	public static final String CALIFORNIA_ADVENTURE_RESULT_JSON = "California Adventure result JSON";
-	public static final String TITLE_TEXT = "titleText";
-	public static final String MAIN_TEXT = "mainText";
-	public static final String RIDERECT_URL = "redirectionUrl";
-	public static final String URL = "https://alanvilla.com";
-
-
-
 
 	/**
 	 * Get request for results endpoint that returns a json array of two 
@@ -51,20 +52,20 @@ public class ResultsResource {
     	if (park == ThemePark.DISNEYLAND) {
         	builder.add(TITLE_TEXT, DISNEY_RESULT_JSON);
         	if (BlackoutDates.isDisneyBlackoutDate()) {
-        		builder.add(MAIN_TEXT, "Disneyland is not available today.");
+        		builder.add(MAIN_TEXT, DISNEYLAND_NOT_AVAILABLE);
         	} else {
-        		builder.add(MAIN_TEXT, "Disneyland is available today.");
+        		builder.add(MAIN_TEXT, DISNEYLAND_AVAILABLE);
         	}
         	
     	} else if (park == ThemePark.CALIFORNIA_ADVENTURE){
         	builder.add(TITLE_TEXT, CALIFORNIA_ADVENTURE_RESULT_JSON);
         	if (BlackoutDates.isCaliforniaAdventureBlackoutDate()) {
-        		builder.add(MAIN_TEXT, "California adventure is not available today.");
+        		builder.add(MAIN_TEXT, CALIFORNIA_ADVENTURE_NOT_AVAILABLE);
         	} else {
-        		builder.add(MAIN_TEXT, "California adventure is available today.");
+        		builder.add(MAIN_TEXT, CALIFORNIA_ADVENTURE_AVAILABLE);
         	}
     	}	
-    	builder.add(RIDERECT_URL, URL);
+    	builder.add(REDIRECT_URL, URL);
 		return builder;   	
     }
     
