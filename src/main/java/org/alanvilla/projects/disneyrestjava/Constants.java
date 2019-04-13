@@ -1,4 +1,4 @@
-package org.alanvilla.projects.disneyRestJava;
+package org.alanvilla.projects.disneyrestjava;
 
 public final class Constants {
 	

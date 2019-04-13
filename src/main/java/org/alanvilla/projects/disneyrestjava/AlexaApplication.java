@@ -1,4 +1,4 @@
-package org.alanvilla.projects.disneyRestJava;
+package org.alanvilla.projects.disneyrestjava;
 
 import javax.ws.rs.core.Application;
 import javax.ws.rs.ApplicationPath;

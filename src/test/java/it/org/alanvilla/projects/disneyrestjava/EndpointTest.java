@@ -1,10 +1,10 @@
-package it.org.alanvilla.projects.disneyRestJava;
+package it.org.alanvilla.projects.disneyrestjava;
 
-import static org.alanvilla.projects.disneyRestJava.Constants.CALIFORNIA_ADVENTURE_AVAILABLE;
-import static org.alanvilla.projects.disneyRestJava.Constants.CALIFORNIA_ADVENTURE_NOT_AVAILABLE;
-import static org.alanvilla.projects.disneyRestJava.Constants.DISNEYLAND_AVAILABLE;
-import static org.alanvilla.projects.disneyRestJava.Constants.DISNEYLAND_NOT_AVAILABLE;
-import static org.alanvilla.projects.disneyRestJava.Constants.MAIN_TEXT;
+import static org.alanvilla.projects.disneyrestjava.Constants.CALIFORNIA_ADVENTURE_AVAILABLE;
+import static org.alanvilla.projects.disneyrestjava.Constants.CALIFORNIA_ADVENTURE_NOT_AVAILABLE;
+import static org.alanvilla.projects.disneyrestjava.Constants.DISNEYLAND_AVAILABLE;
+import static org.alanvilla.projects.disneyrestjava.Constants.DISNEYLAND_NOT_AVAILABLE;
+import static org.alanvilla.projects.disneyrestjava.Constants.MAIN_TEXT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 

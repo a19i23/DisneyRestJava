@@ -1,15 +1,15 @@
-package org.alanvilla.projects.disneyRestJava;
+package org.alanvilla.projects.disneyrestjava;
 
-import static org.alanvilla.projects.disneyRestJava.Constants.CALIFORNIA_ADVENTURE_RESULT_JSON;
-import static org.alanvilla.projects.disneyRestJava.Constants.CALIFORNIA_ADVENTURE_AVAILABLE;
-import static org.alanvilla.projects.disneyRestJava.Constants.CALIFORNIA_ADVENTURE_NOT_AVAILABLE;
-import static org.alanvilla.projects.disneyRestJava.Constants.DISNEYLAND_AVAILABLE;
-import static org.alanvilla.projects.disneyRestJava.Constants.DISNEYLAND_NOT_AVAILABLE;
-import static org.alanvilla.projects.disneyRestJava.Constants.DISNEY_RESULT_JSON;
-import static org.alanvilla.projects.disneyRestJava.Constants.MAIN_TEXT;
-import static org.alanvilla.projects.disneyRestJava.Constants.REDIRECT_URL;
-import static org.alanvilla.projects.disneyRestJava.Constants.TITLE_TEXT;
-import static org.alanvilla.projects.disneyRestJava.Constants.URL;
+import static org.alanvilla.projects.disneyrestjava.Constants.CALIFORNIA_ADVENTURE_AVAILABLE;
+import static org.alanvilla.projects.disneyrestjava.Constants.CALIFORNIA_ADVENTURE_NOT_AVAILABLE;
+import static org.alanvilla.projects.disneyrestjava.Constants.CALIFORNIA_ADVENTURE_RESULT_JSON;
+import static org.alanvilla.projects.disneyrestjava.Constants.DISNEYLAND_AVAILABLE;
+import static org.alanvilla.projects.disneyrestjava.Constants.DISNEYLAND_NOT_AVAILABLE;
+import static org.alanvilla.projects.disneyrestjava.Constants.DISNEY_RESULT_JSON;
+import static org.alanvilla.projects.disneyrestjava.Constants.MAIN_TEXT;
+import static org.alanvilla.projects.disneyrestjava.Constants.REDIRECT_URL;
+import static org.alanvilla.projects.disneyrestjava.Constants.TITLE_TEXT;
+import static org.alanvilla.projects.disneyrestjava.Constants.URL;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -49,9 +49,10 @@ public class ResultsResource {
     
     private JsonObjectBuilder buildAlexaObject (JsonObjectBuilder builder, ThemePark park) { 	
     	addUTCData(builder);
+		BlackoutDates blackoutDates = new  BlackoutDates();
     	if (park == ThemePark.DISNEYLAND) {
         	builder.add(TITLE_TEXT, DISNEY_RESULT_JSON);
-        	if (BlackoutDates.isDisneyBlackoutDate()) {
+        	if (blackoutDates.isDisneyBlackoutDate()) {
         		builder.add(MAIN_TEXT, DISNEYLAND_NOT_AVAILABLE);
         	} else {
         		builder.add(MAIN_TEXT, DISNEYLAND_AVAILABLE);
@@ -59,7 +60,7 @@ public class ResultsResource {
         	
     	} else if (park == ThemePark.CALIFORNIA_ADVENTURE){
         	builder.add(TITLE_TEXT, CALIFORNIA_ADVENTURE_RESULT_JSON);
-        	if (BlackoutDates.isCaliforniaAdventureBlackoutDate()) {
+        	if (blackoutDates.isCaliforniaAdventureBlackoutDate()) {
         		builder.add(MAIN_TEXT, CALIFORNIA_ADVENTURE_NOT_AVAILABLE);
         	} else {
         		builder.add(MAIN_TEXT, CALIFORNIA_ADVENTURE_AVAILABLE);
